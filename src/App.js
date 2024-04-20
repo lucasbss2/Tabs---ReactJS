@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { FaAngleDoubleRight } from "react-icons/fa";
-
-const url = "https://course-api.com/react-tabs-project";
+import getData from "./API/getData";
 
 const App = () => {
   const [loading, setLoading] = useState(true);
@@ -9,8 +8,7 @@ const App = () => {
   const [value, setValue] = useState(0);
 
   const fetchJobs = async () => {
-    const response = await fetch(url);
-    const newJobs = await response.json();
+    const newJobs = await getData();
     setJobs(newJobs);
     setLoading(false);
   };
